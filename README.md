@@ -29,6 +29,7 @@ Rename checklist:
 - [ ] `index.html` → `<title>`
 - [ ] `src/App.vue` → brand text in the header (and footer)
 - [ ] `public/favicon.svg` → replace the placeholder mark
+- [ ] `vite.config.ts` → `PORT` (one unique port per app; used by dev and preview)
 
 Then:
 
@@ -47,6 +48,10 @@ Pog scripts from the devshell (each has a `bun run` equivalent):
 | `build`   | typecheck + build to `./dist`         |
 | `preview` | serve the production build            |
 | `check`   | typecheck only (`bun run typecheck`)  |
+
+The server binds `0.0.0.0` on `PORT` (set in `vite.config.ts`, default 3000)
+for both dev and preview, with `allowedHosts: true` — so it's reachable as
+`<host>:PORT` over tailscale from any machine.
 
 ## Theming
 
