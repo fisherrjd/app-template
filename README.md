@@ -60,7 +60,9 @@ Themes are **presets** (`data-theme` on `<html>`) crossed with **mode**
 inline script in `index.html`.
 
 - Tokens live in `src/assets/themes/<preset>.css` — one file per preset, a
-  light block and a `.dark` block of shadcn HSL triplets.
+  light block and a `.dark` block of shadcn HSL triplets. Presets: **evergreen**
+  (default — forest green/grey/tan, dark-first), nordic, abyss, carbon, dusk,
+  earthy, grapebox. Default mode is dark.
 - Open **`/styleguide`** while editing: swatches, type scale, and every
   component repaint live via HMR.
 - The wiring (`@theme inline` map, radius, base styles) is in
@@ -72,6 +74,8 @@ Add a preset:
    `[data-theme='<name>']` selectors and the triplets.
 2. Add `@import "./themes/<name>.css";` in `src/assets/index.css`.
 3. Add `{ id: '<name>', label: '<Name>' }` to `THEMES` in `src/lib/themes.ts`.
+4. Add the id to the pre-paint `themes` list in `index.html` (it validates
+   saved themes so a deleted preset can't paint unstyled).
 
 To lock a single look for a real app, delete the presets you don't want and
 (optionally) the `ThemePicker` from `App.vue`.
