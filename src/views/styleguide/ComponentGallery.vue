@@ -91,6 +91,18 @@ const flavor = ref<string>()
       </div>
     </div>
 
+    <div class="space-y-3">
+      <h3 class="text-sm font-medium text-muted-foreground">Clickable card (.card-hover)</h3>
+      <Card class="card-hover max-w-sm gap-1 p-4" tabindex="0">
+        <p class="text-sm font-medium">Hover or focus me</p>
+        <p class="text-xs text-muted-foreground">
+          Lift, glow, and tint say "I navigate somewhere" — add the
+          <code class="rounded bg-muted px-1 font-mono text-[10px]">card-hover</code>
+          class to any card that acts as a link.
+        </p>
+      </Card>
+    </div>
+
     <div class="grid gap-6 md:grid-cols-2">
       <Card>
         <CardHeader>
