@@ -61,8 +61,8 @@ inline script in `index.html`.
 
 - Tokens live in `src/assets/themes/<preset>.css` — one file per preset, a
   light block and a `.dark` block of shadcn HSL triplets. Presets: **evergreen**
-  (default — forest green/grey/tan, dark-first), nordic, abyss, carbon, dusk,
-  earthy, grapebox. Default mode is dark.
+  (default — forest green/grey/tan, dark-first), dusk, earthy, grapebox.
+  Default mode is dark.
 - Open **`/styleguide`** while editing: swatches, type scale, and every
   component repaint live via HMR.
 - The wiring (`@theme inline` map, radius, base styles) is in
