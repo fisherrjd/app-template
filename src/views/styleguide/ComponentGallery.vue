@@ -42,6 +42,7 @@ import {
 } from '@/components/ui/select'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Switch } from '@/components/ui/switch'
+import { Textarea } from '@/components/ui/textarea'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import {
   Tooltip,
@@ -117,6 +118,10 @@ const flavor = ref<string>()
           <div class="space-y-2">
             <Label for="gallery-disabled">Disabled input</Label>
             <Input id="gallery-disabled" disabled placeholder="Can't touch this" />
+          </div>
+          <div class="space-y-2">
+            <Label for="gallery-notes">Notes</Label>
+            <Textarea id="gallery-notes" placeholder="Multi-line input, grows with content…" />
           </div>
           <div class="space-y-2">
             <Label>Flavor</Label>

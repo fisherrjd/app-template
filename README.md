@@ -35,7 +35,7 @@ Then:
 
 ```sh
 direnv allow   # builds the nix devshell (bun + pog scripts)
-dev            # installs deps if needed, starts vite on :5173
+dev            # installs deps if needed, starts vite on PORT (default :3000)
 ```
 
 ## Scripts
@@ -80,6 +80,30 @@ Add a preset:
 To lock a single look for a real app, delete the presets you don't want and
 (optionally) the `ThemePicker` from `App.vue`.
 
+## Pattern library
+
+Beyond the shadcn primitives in `src/components/ui/`, reusable patterns live in
+domain folders — each has a matching section in the styleguide, and the example
+pages compose them:
+
+| folder                      | components                                                        | example page |
+| --------------------------- | ----------------------------------------------------------------- | ------------ |
+| `components/dashboard/`     | StatCard, Sparkline, BarChart, ActivityFeed, ProgressMeter, UserAvatar | `/` |
+| `components/project/`       | KanbanBoard (touch drag & drop), StatusBadge, PullRequestItem, NotesPanel, FreshnessDot, SaveIndicator | `/project` |
+| `components/forms/`         | FormField, SettingsSection                                        | `/settings` |
+| `components/data/`          | DataTable (sort/pagination/slots), SearchInput, FilterBar         | styleguide |
+| `components/states/`        | EmptyState, ErrorState, ConfirmDialog                             | styleguide |
+| `components/content/`       | MarkdownView (marked + DOMPurify, `.md-prose` tokens), ArticleCard, PostMeta | `/blog` |
+| `components/` (top level)   | PageHeader, ThemePicker, ThemeToggle                              | everywhere |
+
+Demo data stays in the views; components only take props/v-model, so they lift
+straight into real apps. Kanban and notes persist to localStorage until a
+backend replaces them. For a new app, delete the folders (and routes) you
+don't need.
+
+Note: `crypto.randomUUID` is unavailable over plain http (e.g. tailnet) — use
+`uid()` from `src/lib/utils.ts` for client-side ids.
+
 ## Stripping the styleguide
 
 For apps that don't want the playground:
@@ -94,8 +118,8 @@ For apps that don't want the playground:
 bunx shadcn-vue@latest add <component>
 ```
 
-Included set: button, card, input, label, select, checkbox, switch, dialog,
-dropdown-menu, tabs, badge, separator, skeleton, sonner, tooltip.
+Included set: button, card, input, textarea, label, select, checkbox, switch,
+dialog, dropdown-menu, tabs, badge, separator, skeleton, sonner, tooltip.
 
 Note: this repo keeps the `hsl(var(--x))` triplet convention in
 `src/assets/index.css` rather than the newer oklch style the shadcn-vue CLI
