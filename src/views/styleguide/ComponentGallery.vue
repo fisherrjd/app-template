@@ -42,6 +42,14 @@ import {
 } from '@/components/ui/select'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Switch } from '@/components/ui/switch'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
 import { Textarea } from '@/components/ui/textarea'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import {
@@ -102,6 +110,40 @@ const flavor = ref<string>()
           class to any card that acts as a link.
         </p>
       </Card>
+    </div>
+
+    <div class="space-y-3">
+      <h3 class="text-sm font-medium text-muted-foreground">
+        Table — bare primitives; reach for data/DataTable when you need sorting or pagination
+      </h3>
+      <div class="max-w-md rounded-xl border">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Day</TableHead>
+              <TableHead>Assignee</TableHead>
+              <TableHead class="text-right">Room</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            <TableRow>
+              <TableCell>Mon</TableCell>
+              <TableCell>Maya</TableCell>
+              <TableCell class="text-right">Kitchen</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Tue</TableCell>
+              <TableCell>Liam</TableCell>
+              <TableCell class="text-right">Bathroom</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Wed</TableCell>
+              <TableCell>Sofia</TableCell>
+              <TableCell class="text-right">Living room</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </div>
     </div>
 
     <div class="grid gap-6 md:grid-cols-2">

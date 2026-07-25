@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
+import Checklist from '@/components/project/Checklist.vue'
 import FreshnessDot from '@/components/project/FreshnessDot.vue'
 import PullRequestItem from '@/components/project/PullRequestItem.vue'
 import SaveIndicator from '@/components/project/SaveIndicator.vue'
@@ -8,6 +10,14 @@ import { Card } from '@/components/ui/card'
 
 const DAY = 24 * 60 * 60 * 1000
 const daysAgo = (n: number) => new Date(Date.now() - n * DAY).toISOString()
+
+const releaseSteps = [
+  { id: 'typecheck', label: 'Typecheck passes' },
+  { id: 'build', label: 'Production build is green' },
+  { id: 'phone', label: 'Reviewed on the phone over tailscale' },
+  { id: 'tag', label: 'Tag and push' },
+]
+const releaseDone = ref(['typecheck', 'build'])
 
 const statuses = [
   'open',
@@ -93,6 +103,13 @@ const statuses = [
           <SaveIndicator state="saved" />
           <SaveIndicator state="saving" />
           <SaveIndicator state="error" />
+        </Card>
+
+        <h3 class="pt-3 text-sm font-medium text-muted-foreground">
+          Checklist — v-model:done, strike-through + progress (from chore-tracker)
+        </h3>
+        <Card class="p-5">
+          <Checklist v-model:done="releaseDone" :items="releaseSteps" />
         </Card>
       </div>
     </div>

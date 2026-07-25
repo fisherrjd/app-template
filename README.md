@@ -89,8 +89,8 @@ pages compose them:
 | folder                      | components                                                        | example page |
 | --------------------------- | ----------------------------------------------------------------- | ------------ |
 | `components/dashboard/`     | StatCard, Sparkline, BarChart, ActivityFeed, ProgressMeter, UserAvatar | `/` |
-| `components/project/`       | KanbanBoard (touch drag & drop), StatusBadge, PullRequestItem, NotesPanel, FreshnessDot, SaveIndicator | `/project` |
-| `components/forms/`         | FormField, SettingsSection                                        | `/settings` |
+| `components/project/`       | KanbanBoard (touch drag & drop), StatusBadge, PullRequestItem, NotesPanel, FreshnessDot, SaveIndicator, Checklist | `/project` |
+| `components/forms/`         | FormField, SettingsSection, TagInput                              | `/settings` |
 | `components/data/`          | DataTable (sort/pagination/slots), SearchInput, FilterBar         | styleguide |
 | `components/states/`        | EmptyState, ErrorState, ConfirmDialog                             | styleguide |
 | `components/content/`       | MarkdownView (marked + DOMPurify, `.md-prose` tokens), ArticleCard, PostMeta | `/blog` |
@@ -119,7 +119,7 @@ bunx shadcn-vue@latest add <component>
 ```
 
 Included set: button, card, input, textarea, label, select, checkbox, switch,
-dialog, dropdown-menu, tabs, badge, separator, skeleton, sonner, tooltip.
+dialog, dropdown-menu, tabs, table, badge, separator, skeleton, sonner, tooltip.
 
 Note: this repo keeps the `hsl(var(--x))` triplet convention in
 `src/assets/index.css` rather than the newer oklch style the shadcn-vue CLI

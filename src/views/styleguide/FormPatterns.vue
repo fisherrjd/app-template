@@ -3,11 +3,13 @@ import { ref } from 'vue'
 import { toast } from 'vue-sonner'
 import FormField from '@/components/forms/FormField.vue'
 import SettingsSection from '@/components/forms/SettingsSection.vue'
+import TagInput from '@/components/forms/TagInput.vue'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 
 const name = ref('')
+const tags = ref(['vue', 'tailwind'])
 </script>
 
 <template>
@@ -27,6 +29,13 @@ const name = ref('')
           error="That key doesn't look right."
         >
           <Input :id="id" model-value="sk-nope" aria-invalid="true" />
+        </FormField>
+        <FormField
+          v-slot="{ id }"
+          label="Tags"
+          hint="TagInput — removable chips, enter to add (from chore-tracker)."
+        >
+          <TagInput :id="id" v-model="tags" placeholder="Add a tag…" />
         </FormField>
       </Card>
     </div>

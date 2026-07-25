@@ -4,6 +4,7 @@ import { toast } from 'vue-sonner'
 import PageHeader from '@/components/PageHeader.vue'
 import FormField from '@/components/forms/FormField.vue'
 import SettingsSection from '@/components/forms/SettingsSection.vue'
+import TagInput from '@/components/forms/TagInput.vue'
 import ConfirmDialog from '@/components/states/ConfirmDialog.vue'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -28,6 +29,7 @@ const nameError = computed(() => (name.value.trim() ? undefined : 'Display name 
 const productUpdates = ref(true)
 const weeklyDigest = ref(false)
 const mentions = ref(true)
+const digestTimes = ref(['08:00', '17:30'])
 
 // appearance — wired to the real theme system, not a mock
 const { theme, mode, setTheme, toggleMode } = useTheme()
@@ -88,6 +90,13 @@ function save(what: string) {
         </div>
         <Switch id="notif-mentions" v-model="mentions" />
       </div>
+      <FormField
+        v-slot="{ id }"
+        label="Digest times"
+        hint="Daily summaries go out at these times."
+      >
+        <TagInput :id="id" v-model="digestTimes" type="time" mono />
+      </FormField>
       <template #footer>
         <Button @click="save('Notifications')">Save</Button>
       </template>
