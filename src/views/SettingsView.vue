@@ -26,6 +26,7 @@ const digestTimes = ref(['08:00', '17:30'])
 
 // appearance — wired to the real theme system, not a mock
 const { mode, toggleMode } = useTheme()
+const isDev = import.meta.env.DEV
 const darkMode = computed({
   get: () => mode.value === 'dark',
   set: () => toggleMode(),
@@ -102,7 +103,8 @@ function save(what: string) {
             {{ THEME.palette }} · {{ THEME.style }} · {{ THEME.fonts.heading }} / {{ THEME.fonts.body }}
           </p>
         </div>
-        <RouterLink to="/styleguide" class="text-sm font-medium text-primary-text underline-offset-4 hover:underline">
+        <!-- the styleguide only exists in dev (src/router.ts) -->
+        <RouterLink v-if="isDev" to="/styleguide" class="text-sm font-medium text-primary-text underline-offset-4 hover:underline">
           Try others in the theme lab →
         </RouterLink>
       </div>

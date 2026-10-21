@@ -110,7 +110,7 @@ ui({ palette: 'evergreen', lockMode: true })            // pinned dark: no toggl
   - `block`: 2px outlines, hard shadows.
   - `hud`: console panels, corner brackets, glow.
 
-**Find a look:** open **`/styleguide`**. Its theme lab repaints the whole app
+**Find a look:** run `dev` and open **`/styleguide`** (dev only, never in a build). Its theme lab repaints the whole app
 live (palettes, color pickers, fonts, style, radius, mode) and prints the
 `ui({ … })` line to paste back here.
 
@@ -149,13 +149,12 @@ don't need.
 Note: `crypto.randomUUID` is unavailable over plain http (e.g. tailnet) — use
 `uid()` from `src/lib/utils.ts` for client-side ids.
 
-## Stripping the styleguide
+## The styleguide never ships
 
-For apps that don't want the playground:
-
-1. Delete `src/views/styleguide/`.
-2. Remove the `/styleguide` route from `src/router.ts`.
-3. Remove the Styleguide nav link in `src/App.vue`.
+`/styleguide` (theme lab, swatches, pattern demos) is a workshop for `dev`
+only. Its route (`src/router.ts`), nav link (`src/App.vue`) and the lab link in
+Settings are all behind `import.meta.env.DEV`, so a production build doesn't
+contain the page at all. Keep that pattern for anything else that's dev-only.
 
 ## Adding components
 

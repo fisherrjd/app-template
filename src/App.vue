@@ -18,7 +18,8 @@ const nav: NavSection[] = [
       { to: '/project', label: 'Project', icon: KanbanSquareIcon },
       { to: '/blog', label: 'Blog', icon: FileTextIcon },
       { to: '/settings', label: 'Settings', icon: SettingsIcon },
-      { to: '/styleguide', label: 'Styleguide', icon: PaletteIcon },
+      // dev only, like its route (src/router.ts)
+      ...(import.meta.env.DEV ? [{ to: '/styleguide', label: 'Styleguide', icon: PaletteIcon }] : []),
     ],
   },
 ]
