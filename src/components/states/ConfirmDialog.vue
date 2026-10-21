@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { Button } from '@/components/ui/button'
+import { Button } from '@fisherrjd/ui/button'
 import {
   Dialog,
   DialogContent,
@@ -9,7 +8,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog'
+} from '@fisherrjd/ui/dialog'
+import { ref } from 'vue'
 
 // wrap any trigger element; @confirm fires only on the confirm button.
 //   <ConfirmDialog destructive title="Delete?" @confirm="doIt">

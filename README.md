@@ -1,8 +1,10 @@
 # app-template
 
 A personal starting point for web apps: Vue 3 + Vite + TypeScript, Tailwind v4,
-shadcn-vue components, and a theme system with live-editable presets. Clone it,
-rename it, delete what you don't need.
+shadcn-vue components and **Jade's theme** from
+[`@fisherrjd/ui`](https://github.com/fisherrjd/ui): one look, recolored and
+refonted per app in `vite.config.ts`. Clone it, rename it, delete what you
+don't need.
 
 **Stack:** Vue 3 · Vite · TypeScript · Tailwind v4 (`@tailwindcss/vite`, CSS-first) ·
 shadcn-vue (reka-ui) · `@lucide/vue` icons · vue-sonner toasts · bun · nix devshell
@@ -27,9 +29,11 @@ Rename checklist:
 - [ ] `package.json` → `name`
 - [ ] `default.nix` → `name = "..."`
 - [ ] `index.html` → `<title>`
-- [ ] `src/App.vue` → brand text in the header (and footer)
+- [ ] `src/App.vue` → brand text in the sidebar and top bar
 - [ ] `public/favicon.svg` → replace the placeholder mark
 - [ ] `vite.config.ts` → `PORT` (one unique port per app; used by dev and preview)
+- [ ] `vite.config.ts` → `ui({ … })`: this app's colors, fonts and style (find
+      them in `/styleguide`'s theme lab)
 
 Then:
 
@@ -48,41 +52,76 @@ Pog scripts from the devshell (each has a `bun run` equivalent):
 | `build`   | typecheck + build to `./dist`         |
 | `preview` | serve the production build            |
 | `check`   | typecheck only (`bun run typecheck`)  |
+| `ui-update` | pull the latest shared styles/components (`@fisherrjd/ui`) and typecheck |
 
 The server binds `0.0.0.0` on `PORT` (set in `vite.config.ts`, default 3000)
 for both dev and preview, with `allowedHosts: true` — so it's reachable as
 `<host>:PORT` over tailscale from any machine.
 
+## Shared UI: `@fisherrjd/ui`
+
+The look every app shares lives in its own repo,
+[fisherrjd/ui](https://github.com/fisherrjd/ui), installed as a git
+dependency. It holds the theme engine (seed colors → every token), base
+styles and utilities (`card-hover`, `md-prose`, `rise-in`, page transitions),
+the shadcn-vue primitives, and the theme runtime (`useTheme`, `ThemeToggle`,
+pre-paint, the theme lab).
+
+**Change the theme once, every app picks it up:**
+
+1. In `~/github/projects/ui`: `dev` opens its styleguide playground. Edit
+   `styles/` or `src/components/ui/` and watch it repaint. Push to main.
+2. In each app: `ui-update`, check it, commit `bun.lock`.
+
+Apps only move when you run `ui-update` — `bun.lock` pins the exact commit,
+so nothing changes under an app by surprise.
+
+Imports:
+
+```ts
+import { Button } from '@fisherrjd/ui/button'          // any primitive: @fisherrjd/ui/<name>
+import { THEME, ThemeToggle, useTheme } from '@fisherrjd/ui/theme'
+import { cn } from '@/lib/utils'                         // re-exported from @fisherrjd/ui/utils
+```
+
+`src/assets/index.css` imports the shared stylesheet; app-only CSS goes below
+it. Need a primitive to look different in one app only? Copy it into
+`src/components/` and import that copy there, or pass a `class`.
+
 ## Theming
 
-Themes are **presets** (`data-theme` on `<html>`) crossed with **mode**
-(`.dark` class). Both persist to localStorage and apply pre-paint via the
-inline script in `index.html`.
+One structure (sidebar + top bar, mono numbers and labels), any colors and
+fonts. Each app sets its look in `vite.config.ts`:
 
-- Tokens live in `src/assets/themes/<preset>.css` — one file per preset, a
-  light block and a `.dark` block of shadcn HSL triplets. Presets: **evergreen**
-  (default — forest green/grey/tan, dark-first), dusk, earthy, grapebox.
-  Default mode is dark.
-- Open **`/styleguide`** while editing: swatches, type scale, and every
-  component repaint live via HMR.
-- The wiring (`@theme inline` map, radius, base styles) is in
-  `src/assets/index.css` — you rarely touch it.
+```ts
+ui()                                                    // evergreen, line, dark
+ui({ palette: 'gold', fonts: { heading: 'Cinzel' }, style: 'hud', radius: 0 })
+ui({ palette: 'crimson', colors: { neutral: '#1a1c22' }, defaultMode: 'light' })
+ui({ palette: 'evergreen', lockMode: true })            // pinned dark: no toggle
+```
 
-Add a preset:
+- **colors:** 4 seeds (primary, accent, neutral, danger). Every other color is
+  derived for dark and light, with readable contrast built in. Start from a
+  palette (evergreen, lime, crimson, ember, lagoon, cobalt, gold, synth,
+  blueprint, dusk) and override any seed.
+- **fonts:** heading, body, mono. Any Google Fonts family.
+- **style:**
+  - `line`: hairlines, flat.
+  - `block`: 2px outlines, hard shadows.
+  - `hud`: console panels, corner brackets, glow.
 
-1. Copy `src/assets/themes/earthy.css` → `themes/<name>.css`, change the
-   `[data-theme='<name>']` selectors and the triplets.
-2. Add `@import "./themes/<name>.css";` in `src/assets/index.css`.
-3. Add `{ id: '<name>', label: '<Name>' }` to `THEMES` in `src/lib/themes.ts`.
-4. Add the id to the pre-paint `themes` list in `index.html` (it validates
-   saved themes so a deleted preset can't paint unstyled).
+**Find a look:** open **`/styleguide`**. Its theme lab repaints the whole app
+live (palettes, color pickers, fonts, style, radius, mode) and prints the
+`ui({ … })` line to paste back here.
 
-To lock a single look for a real app, delete the presets you don't want and
-(optionally) the `ThemePicker` from `App.vue`.
+In app code, use theme tokens rather than Tailwind palette colors:
+`text-success`, `bg-warning`, `text-primary-text`, `bg-chart-3`, `font-heading`.
+That way pattern components follow the app's colors. The full token list is
+in the ui README.
 
 ## Pattern library
 
-Beyond the shadcn primitives in `src/components/ui/`, reusable patterns live in
+On top of the shared primitives, reusable patterns live in
 domain folders — each has a matching section in the styleguide, and the example
 pages compose them:
 
@@ -94,7 +133,7 @@ pages compose them:
 | `components/data/`          | DataTable (sort/pagination/slots), SearchInput, FilterBar         | styleguide |
 | `components/states/`        | EmptyState, ErrorState, ConfirmDialog                             | styleguide |
 | `components/content/`       | MarkdownView (marked + DOMPurify, `.md-prose` tokens), ArticleCard, PostMeta | `/blog` |
-| `components/` (top level)   | PageHeader, ThemePicker, ThemeToggle                              | everywhere |
+| `components/` (top level)   | PageHeader                                                        | everywhere |
 
 Demo data stays in the views; components only take props/v-model, so they lift
 straight into real apps. Kanban and notes persist to localStorage until a
@@ -114,17 +153,10 @@ For apps that don't want the playground:
 
 ## Adding components
 
-```sh
-bunx shadcn-vue@latest add <component>
-```
-
-Included set: button, card, input, textarea, label, select, checkbox, switch,
-dialog, dropdown-menu, tabs, table, badge, separator, skeleton, sonner, tooltip.
-
-Note: this repo keeps the `hsl(var(--x))` triplet convention in
-`src/assets/index.css` rather than the newer oklch style the shadcn-vue CLI
-generates — newly added components work either way since they only use utility
-names, but don't let the CLI rewrite `src/assets/index.css`.
+shadcn-vue primitives are added in the ui repo (`add <component>` there), so
+every app gets them. Included set: button, card, input, textarea, label,
+select, checkbox, switch, dialog, dropdown-menu, tabs, table, badge,
+separator, skeleton, sonner, tooltip.
 
 ## Backend proxy
 

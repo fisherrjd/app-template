@@ -1,12 +1,12 @@
 <script setup lang="ts">
+import { Button } from '@fisherrjd/ui/button'
+import { Card } from '@fisherrjd/ui/card'
+import { Skeleton } from '@fisherrjd/ui/skeleton'
 import { SearchXIcon } from '@lucide/vue'
 import { toast } from 'vue-sonner'
 import ConfirmDialog from '@/components/states/ConfirmDialog.vue'
 import EmptyState from '@/components/states/EmptyState.vue'
 import ErrorState from '@/components/states/ErrorState.vue'
-import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
-import { Skeleton } from '@/components/ui/skeleton'
 </script>
 
 <template>

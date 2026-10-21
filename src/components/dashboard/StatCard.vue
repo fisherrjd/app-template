@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { Component } from 'vue'
+import { Card } from '@fisherrjd/ui/card'
 import { TrendingDownIcon, TrendingUpIcon } from '@lucide/vue'
+import type { Component } from 'vue'
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
-import { Card } from '@/components/ui/card'
 import Sparkline from './Sparkline.vue'
 
 const props = withDefaults(
@@ -48,24 +48,24 @@ const deltaText = computed(() =>
 <template>
   <Card class="gap-0 p-5 transition-[border-color] hover:border-primary/40">
     <div class="flex items-center justify-between gap-2">
-      <p class="text-sm text-muted-foreground">{{ label }}</p>
-      <span v-if="icon" class="grid size-7 place-items-center rounded-md bg-primary/10 text-primary">
+      <p class="font-mono text-[11px] tracking-widest text-muted-foreground uppercase">{{ label }}</p>
+      <span v-if="icon" class="grid size-7 place-items-center rounded-md bg-primary/10 text-primary-text">
         <component :is="icon" class="size-4" />
       </span>
     </div>
-    <p class="mt-2 text-2xl font-semibold tracking-tight tabular-nums">{{ display }}</p>
+    <p class="mt-2 font-mono text-[1.75rem] leading-tight font-medium tracking-tight tabular-nums">{{ display }}</p>
     <div class="mt-3 flex items-end justify-between gap-4">
       <p
         v-if="delta !== undefined"
-        class="flex items-center gap-1 text-xs font-medium"
-        :class="delta >= 0 ? 'text-emerald-600 dark:text-emerald-400' : 'text-destructive'"
+        class="flex items-center gap-1 text-xs font-medium whitespace-nowrap"
+        :class="delta >= 0 ? 'text-success' : 'text-destructive'"
       >
         <TrendingUpIcon v-if="delta >= 0" class="size-3.5" />
         <TrendingDownIcon v-else class="size-3.5" />
         {{ deltaText }}
         <span class="font-normal text-muted-foreground">vs last period</span>
       </p>
-      <div v-if="data" class="h-9 w-24 shrink-0 text-primary">
+      <div v-if="data" class="h-9 w-20 min-w-0 text-primary-text">
         <Sparkline :data="data" />
       </div>
     </div>

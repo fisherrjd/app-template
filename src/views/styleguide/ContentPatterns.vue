@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { Card } from '@fisherrjd/ui/card'
 import { RouterLink } from 'vue-router'
 import ArticleCard from '@/components/content/ArticleCard.vue'
 import MarkdownView from '@/components/content/MarkdownView.vue'
 import PostMeta from '@/components/content/PostMeta.vue'
-import { Card } from '@/components/ui/card'
 
 const sample = `## Rendered markdown
 

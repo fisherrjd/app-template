@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { Badge } from '@fisherrjd/ui/badge'
+import { Card } from '@fisherrjd/ui/card'
 import { CalendarIcon, ClockIcon } from '@lucide/vue'
 import { computed } from 'vue'
-import { Badge } from '@/components/ui/badge'
-import { Card } from '@/components/ui/card'
 
 // presentational — wrap it in a RouterLink (class="block h-full") to
 // make it navigate; card-hover supplies the affordance.
@@ -17,10 +17,10 @@ const props = defineProps<{
 
 // deterministic cover gradient from the title — no images required
 const GRADS = [
-  'from-emerald-500/30 via-sky-500/15 to-transparent',
-  'from-violet-500/30 via-rose-500/15 to-transparent',
-  'from-amber-500/30 via-emerald-500/15 to-transparent',
-  'from-sky-500/30 via-violet-500/15 to-transparent',
+  'from-chart-1/35 via-chart-2/15 to-transparent',
+  'from-chart-3/35 via-chart-1/15 to-transparent',
+  'from-chart-2/35 via-chart-4/15 to-transparent',
+  'from-chart-4/35 via-chart-3/15 to-transparent',
 ]
 const grad = computed(() => {
   let h = 0

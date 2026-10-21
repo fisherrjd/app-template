@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button } from '@/components/ui/button'
+import { Button } from '@fisherrjd/ui/button'
 
 // layout shell for search + filter controls; the parent owns the state
 // and decides when filters count as "active".

@@ -1,38 +1,36 @@
 <script setup lang="ts">
-import ThemePicker from '@/components/ThemePicker.vue'
-import ThemeToggle from '@/components/ThemeToggle.vue'
-import { Separator } from '@/components/ui/separator'
-import ColorSwatches from './ColorSwatches.vue'
-import ComponentGallery from './ComponentGallery.vue'
+import { Separator } from '@fisherrjd/ui/separator'
+import { ColorSwatches, ComponentGallery, ThemeLab, TypeScale } from '@fisherrjd/ui/styleguide'
 import ContentPatterns from './ContentPatterns.vue'
 import DashboardPatterns from './DashboardPatterns.vue'
 import DataPatterns from './DataPatterns.vue'
 import FormPatterns from './FormPatterns.vue'
 import ProjectPatterns from './ProjectPatterns.vue'
 import StatePatterns from './StatePatterns.vue'
-import TypeScale from './TypeScale.vue'
 </script>
 
 <template>
   <div class="space-y-10">
     <div class="flex flex-wrap items-center justify-between gap-4">
       <div class="space-y-1">
-        <h1
-          class="bg-gradient-to-r from-foreground to-foreground/60 bg-clip-text text-3xl font-bold tracking-tight text-transparent"
-        >
-          Styleguide
-        </h1>
+        <p class="font-mono text-[11px] tracking-widest text-muted-foreground uppercase">jade's theme</p>
+        <h1 class="text-3xl font-bold tracking-tight">Styleguide</h1>
         <p class="text-muted-foreground">
-          Live view of the current theme. Edit
-          <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">src/assets/themes/*.css</code>
-          and watch this page repaint.
+          The theme lab repaints the whole app live — try palettes, fonts and styles, then
+          paste the config into <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">vite.config.ts</code>.
+          Colors, type and components come from
+          <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">@fisherrjd/ui</code>; the patterns below live in this app.
         </p>
       </div>
-      <div class="flex items-center gap-1">
-        <ThemePicker />
-        <ThemeToggle />
-      </div>
     </div>
+
+    <section class="space-y-4">
+      <h2 class="flex items-center gap-2 text-xl font-semibold tracking-tight">
+        <span class="size-2 rounded-sm bg-primary" aria-hidden="true" />Theme lab</h2>
+      <ThemeLab />
+    </section>
+
+    <Separator />
 
     <section class="space-y-4">
       <h2 class="flex items-center gap-2 text-xl font-semibold tracking-tight">

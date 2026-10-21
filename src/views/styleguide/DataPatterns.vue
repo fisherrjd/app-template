@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import DataTable from '@/components/data/DataTable.vue'
-import FilterBar from '@/components/data/FilterBar.vue'
-import SearchInput from '@/components/data/SearchInput.vue'
-import type { DataTableColumn } from '@/components/data/types'
-import StatusBadge from '@/components/project/StatusBadge.vue'
-import { Card } from '@/components/ui/card'
-import { Label } from '@/components/ui/label'
+import { Card } from '@fisherrjd/ui/card'
+import { Label } from '@fisherrjd/ui/label'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { Switch } from '@/components/ui/switch'
+} from '@fisherrjd/ui/select'
+import { Switch } from '@fisherrjd/ui/switch'
+import { computed, ref } from 'vue'
+import DataTable from '@/components/data/DataTable.vue'
+import FilterBar from '@/components/data/FilterBar.vue'
+import SearchInput from '@/components/data/SearchInput.vue'
+import type { DataTableColumn } from '@/components/data/types'
+import StatusBadge from '@/components/project/StatusBadge.vue'
 
 const deploys = [
   { id: 'd-101', service: 'api', env: 'production', status: 'passing', duration: 142 },

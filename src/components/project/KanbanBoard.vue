@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { EllipsisVerticalIcon, GripVerticalIcon, PlusIcon } from '@lucide/vue'
-import { nextTick, ref } from 'vue'
-import UserAvatar from '@/components/dashboard/UserAvatar.vue'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
+import { Badge } from '@fisherrjd/ui/badge'
+import { Button } from '@fisherrjd/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import { Input } from '@/components/ui/input'
+} from '@fisherrjd/ui/dropdown-menu'
+import { Input } from '@fisherrjd/ui/input'
+import { EllipsisVerticalIcon, GripVerticalIcon, PlusIcon } from '@lucide/vue'
+import { nextTick, ref } from 'vue'
+import UserAvatar from '@/components/dashboard/UserAvatar.vue'
 import { uid } from '@/lib/utils'
 import type { KanbanCardData, KanbanColumnData } from './types'
 
@@ -21,12 +21,12 @@ import type { KanbanCardData, KanbanColumnData } from './types'
 const columns = defineModel<KanbanColumnData[]>({ required: true })
 
 // column accents by position: backlog-ish grey → doing → review → done
-const COLUMN_DOTS = ['bg-muted-foreground/70', 'bg-sky-500', 'bg-amber-500', 'bg-emerald-500']
+const COLUMN_DOTS = ['bg-muted-foreground/70', 'bg-highlight', 'bg-warning', 'bg-success']
 
 const priorityDot: Record<NonNullable<KanbanCardData['priority']>, string> = {
   low: 'bg-muted-foreground',
-  medium: 'bg-amber-500',
-  high: 'bg-red-500',
+  medium: 'bg-warning',
+  high: 'bg-destructive',
 }
 
 // ——— drag ———

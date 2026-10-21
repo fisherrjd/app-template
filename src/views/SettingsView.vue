@@ -1,24 +1,17 @@
 <script setup lang="ts">
+import { Button } from '@fisherrjd/ui/button'
+import { Input } from '@fisherrjd/ui/input'
+import { Label } from '@fisherrjd/ui/label'
+import { Switch } from '@fisherrjd/ui/switch'
+import { LOCKED, THEME, useTheme } from '@fisherrjd/ui/theme'
 import { computed, ref } from 'vue'
+import { RouterLink } from 'vue-router'
 import { toast } from 'vue-sonner'
 import PageHeader from '@/components/PageHeader.vue'
 import FormField from '@/components/forms/FormField.vue'
 import SettingsSection from '@/components/forms/SettingsSection.vue'
 import TagInput from '@/components/forms/TagInput.vue'
 import ConfirmDialog from '@/components/states/ConfirmDialog.vue'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
-import { Switch } from '@/components/ui/switch'
-import { useTheme } from '@/composables/useTheme'
-import { THEMES, type ThemeId } from '@/lib/themes'
 
 // profile — demo state; the error clears as soon as the field is valid
 const name = ref('Jade Fisher')
@@ -32,11 +25,7 @@ const mentions = ref(true)
 const digestTimes = ref(['08:00', '17:30'])
 
 // appearance — wired to the real theme system, not a mock
-const { theme, mode, setTheme, toggleMode } = useTheme()
-const themeModel = computed({
-  get: () => theme.value,
-  set: (id: ThemeId) => setTheme(id),
-})
+const { mode, toggleMode } = useTheme()
 const darkMode = computed({
   get: () => mode.value === 'dark',
   set: () => toggleMode(),
@@ -106,17 +95,18 @@ function save(what: string) {
       title="Appearance"
       description="These actually work — same state as the header controls."
     >
-      <FormField v-slot="{ id }" label="Theme preset">
-        <Select v-model="themeModel">
-          <SelectTrigger :id="id" class="w-full">
-            <SelectValue />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem v-for="t in THEMES" :key="t.id" :value="t.id">{{ t.label }}</SelectItem>
-          </SelectContent>
-        </Select>
-      </FormField>
-      <div class="flex items-center justify-between gap-4">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <p class="text-sm font-medium">Look</p>
+          <p class="font-mono text-xs text-muted-foreground">
+            {{ THEME.palette }} · {{ THEME.style }} · {{ THEME.fonts.heading }} / {{ THEME.fonts.body }}
+          </p>
+        </div>
+        <RouterLink to="/styleguide" class="text-sm font-medium text-primary-text underline-offset-4 hover:underline">
+          Try others in the theme lab →
+        </RouterLink>
+      </div>
+      <div v-if="!LOCKED" class="flex items-center justify-between gap-4">
         <div>
           <Label for="appearance-dark">Dark mode</Label>
           <p class="text-xs text-muted-foreground">Dark over light, always.</p>

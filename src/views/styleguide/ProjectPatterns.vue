@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Card } from '@fisherrjd/ui/card'
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import Checklist from '@/components/project/Checklist.vue'
@@ -6,7 +7,6 @@ import FreshnessDot from '@/components/project/FreshnessDot.vue'
 import PullRequestItem from '@/components/project/PullRequestItem.vue'
 import SaveIndicator from '@/components/project/SaveIndicator.vue'
 import StatusBadge from '@/components/project/StatusBadge.vue'
-import { Card } from '@/components/ui/card'
 
 const DAY = 24 * 60 * 60 * 1000
 const daysAgo = (n: number) => new Date(Date.now() - n * DAY).toISOString()

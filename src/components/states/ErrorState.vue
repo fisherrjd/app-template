@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { Button } from '@fisherrjd/ui/button'
 import { TriangleAlertIcon } from '@lucide/vue'
-import { Button } from '@/components/ui/button'
 
 // failure placeholder with a retry affordance; override #action to
 // replace the default retry button.

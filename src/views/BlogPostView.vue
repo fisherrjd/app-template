@@ -1,13 +1,13 @@
 <script setup lang="ts">
+import { Badge } from '@fisherrjd/ui/badge'
+import { Button } from '@fisherrjd/ui/button'
+import { Separator } from '@fisherrjd/ui/separator'
 import { ArrowLeftIcon } from '@lucide/vue'
 import { computed } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import MarkdownView from '@/components/content/MarkdownView.vue'
 import PostMeta from '@/components/content/PostMeta.vue'
 import ErrorState from '@/components/states/ErrorState.vue'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { Separator } from '@/components/ui/separator'
 import { formatDate, POSTS, readingTime } from '@/lib/posts'
 
 const route = useRoute()

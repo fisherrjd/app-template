@@ -21,9 +21,9 @@ const title = computed(() =>
 )
 
 const DOT = {
-  fresh: 'bg-emerald-500',
-  cooling: 'bg-amber-500',
-  dormant: 'bg-stone-400',
+  fresh: 'bg-success',
+  cooling: 'bg-warning',
+  dormant: 'bg-muted-foreground/50',
 }
 </script>
 

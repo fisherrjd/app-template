@@ -10,16 +10,16 @@ const props = defineProps<{
 }>()
 
 const dots: Record<string, string> = {
-  open: 'bg-emerald-500',
-  passing: 'bg-emerald-500',
-  done: 'bg-emerald-500',
-  merged: 'bg-violet-500',
-  'in-progress': 'bg-sky-500',
-  pending: 'bg-amber-500',
-  review: 'bg-amber-500',
-  failing: 'bg-red-500',
-  blocked: 'bg-red-500',
-  closed: 'bg-red-500',
+  open: 'bg-success',
+  passing: 'bg-success',
+  done: 'bg-success',
+  merged: 'bg-primary',
+  'in-progress': 'bg-highlight',
+  pending: 'bg-warning',
+  review: 'bg-warning',
+  failing: 'bg-destructive',
+  blocked: 'bg-destructive',
+  closed: 'bg-destructive',
   draft: 'bg-muted-foreground',
   todo: 'bg-muted-foreground',
 }

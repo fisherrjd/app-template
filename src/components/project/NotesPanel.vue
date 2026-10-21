@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { Button } from '@fisherrjd/ui/button'
+import { Input } from '@fisherrjd/ui/input'
 import { PlusIcon, XIcon } from '@lucide/vue'
 import { useLocalStorage } from '@vueuse/core'
 import { ref } from 'vue'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import { uid } from '@/lib/utils'
 
 interface Note {

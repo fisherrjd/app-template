@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { Input } from '@fisherrjd/ui/input'
 import { SearchIcon, XIcon } from '@lucide/vue'
-import { Input } from '@/components/ui/input'
 
 defineProps<{ placeholder?: string }>()
 const model = defineModel<string>({ default: '' })

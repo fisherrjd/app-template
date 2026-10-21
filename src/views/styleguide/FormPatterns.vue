@@ -1,12 +1,12 @@
 <script setup lang="ts">
+import { Button } from '@fisherrjd/ui/button'
+import { Card } from '@fisherrjd/ui/card'
+import { Input } from '@fisherrjd/ui/input'
 import { ref } from 'vue'
 import { toast } from 'vue-sonner'
 import FormField from '@/components/forms/FormField.vue'
 import SettingsSection from '@/components/forms/SettingsSection.vue'
 import TagInput from '@/components/forms/TagInput.vue'
-import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
 
 const name = ref('')
 const tags = ref(['vue', 'tailwind'])

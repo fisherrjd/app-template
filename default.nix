@@ -1,8 +1,8 @@
 { pkgs ? import
     (fetchTarball {
-      name = "jpetrucciani-2026-07-21";
-      url = "https://github.com/jpetrucciani/nix/archive/31fe870656eadb142fd1cb18f9d1a2100c1ffe32.tar.gz";
-      sha256 = "1k6biif8rcwdn9yqgdlqzp62r5ly5l30sp006gjhcywlq6nzkj49";
+      name = "jpetrucciani-2026-10-20";
+      url = "https://github.com/jpetrucciani/nix/archive/1b477d7aa81019d08fd92ea32e835988fa4849c8.tar.gz";
+      sha256 = "0crw41kkvxdhpxklzg4xpx6v7y03150r7g2ygyignx4p061dszip";
     })
     { }
 
@@ -67,6 +67,27 @@ let
           bun install
         fi
         bun run typecheck
+      '';
+    };
+
+    ui-update = pog {
+      name = "ui-update";
+      description = "pull the latest shared styles/components (@fisherrjd/ui) and typecheck";
+      script = ''
+        # bun.lock pins the ui commit as github:fisherrjd/ui#<sha>
+        rev() { grep -oE 'github:fisherrjd/ui#[0-9a-f]+' bun.lock | head -1 | cut -d'#' -f2; }
+        before=$(rev)
+        bun update @fisherrjd/ui
+        after=$(rev)
+        if [ "$before" = "$after" ]; then
+          echo "✓ already on the latest @fisherrjd/ui ($after)"
+          exit 0
+        fi
+        echo "→ @fisherrjd/ui $before → $after"
+        echo "  https://github.com/fisherrjd/ui/compare/$before...$after"
+        bun run typecheck
+        echo ""
+        echo "✅ updated — eyeball /styleguide, then commit bun.lock"
       '';
     };
   };

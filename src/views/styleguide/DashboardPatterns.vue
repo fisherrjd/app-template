@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Button } from '@fisherrjd/ui/button'
+import { Card } from '@fisherrjd/ui/card'
 import { CreditCardIcon, DollarSignIcon, UserPlusIcon, UsersIcon, ZapIcon } from '@lucide/vue'
 import PageHeader from '@/components/PageHeader.vue'
 import ActivityFeed from '@/components/dashboard/ActivityFeed.vue'
@@ -7,8 +9,6 @@ import ProgressMeter from '@/components/dashboard/ProgressMeter.vue'
 import Sparkline from '@/components/dashboard/Sparkline.vue'
 import StatCard from '@/components/dashboard/StatCard.vue'
 import UserAvatar from '@/components/dashboard/UserAvatar.vue'
-import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
 
 const trend = [12, 18, 14, 22, 20, 28, 26, 34]
 const dip = [30, 26, 28, 22, 24, 18, 20, 14]
@@ -68,7 +68,7 @@ const bars = [
         </h3>
         <Card class="flex-row items-center gap-6 p-5">
           <div class="h-10 w-28 text-primary"><Sparkline :data="trend" /></div>
-          <div class="h-10 w-28 text-emerald-500"><Sparkline :data="trend" /></div>
+          <div class="h-10 w-28 text-success"><Sparkline :data="trend" /></div>
           <div class="h-10 w-28 text-destructive"><Sparkline :data="dip" /></div>
         </Card>
 

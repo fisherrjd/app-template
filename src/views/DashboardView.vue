@@ -1,4 +1,21 @@
 <script setup lang="ts">
+import { Badge, type BadgeVariants } from '@fisherrjd/ui/badge'
+import { Button } from '@fisherrjd/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@fisherrjd/ui/card'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@fisherrjd/ui/select'
+import { Separator } from '@fisherrjd/ui/separator'
 import {
   CreditCardIcon,
   DollarSignIcon,
@@ -21,23 +38,6 @@ import BarChart from '@/components/dashboard/BarChart.vue'
 import ProgressMeter from '@/components/dashboard/ProgressMeter.vue'
 import StatCard from '@/components/dashboard/StatCard.vue'
 import UserAvatar from '@/components/dashboard/UserAvatar.vue'
-import { Badge, type BadgeVariants } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
-import { Separator } from '@/components/ui/separator'
 
 // ————— demo data — everything below is fake and lives here on purpose,
 // so the components stay pure and reusable —————
@@ -176,7 +176,7 @@ function exportReport() {
 
 <template>
   <div class="space-y-6">
-    <PageHeader :title="greeting" :description="`${today} — here's what's happening across the store.`">
+    <PageHeader :eyebrow="`${today} · all channels`" :title="greeting" description="Here's what's happening across the store.">
       <template #actions>
         <Select v-model="range">
           <SelectTrigger class="w-36">

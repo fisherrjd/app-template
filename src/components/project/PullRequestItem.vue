@@ -17,10 +17,10 @@ withDefaults(
 )
 
 const iconColor = {
-  open: 'text-emerald-500',
+  open: 'text-success',
   draft: 'text-muted-foreground',
-  merged: 'text-violet-500',
-  closed: 'text-red-500',
+  merged: 'text-primary-text',
+  closed: 'text-destructive',
 }
 </script>
 

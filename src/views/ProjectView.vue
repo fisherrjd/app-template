@@ -1,4 +1,19 @@
 <script setup lang="ts">
+import { Button } from '@fisherrjd/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@fisherrjd/ui/card'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@fisherrjd/ui/select'
 import { PlusIcon, RotateCcwIcon } from '@lucide/vue'
 import { useLocalStorage } from '@vueuse/core'
 import { ref } from 'vue'
@@ -9,21 +24,6 @@ import KanbanBoard from '@/components/project/KanbanBoard.vue'
 import NotesPanel from '@/components/project/NotesPanel.vue'
 import PullRequestItem from '@/components/project/PullRequestItem.vue'
 import type { KanbanColumnData } from '@/components/project/types'
-import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
 
 // ————— demo data; the repo picker and PR list are where the GitHub
 // backend will plug in later —————

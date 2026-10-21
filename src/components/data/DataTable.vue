@@ -7,8 +7,8 @@ import {
   ChevronUpIcon,
 } from '@lucide/vue'
 import { computed, ref, watch } from 'vue'
-import { Button } from '@/components/ui/button'
-import { Skeleton } from '@/components/ui/skeleton'
+import { Button } from '@fisherrjd/ui/button'
+import { Skeleton } from '@fisherrjd/ui/skeleton'
 import type { DataTableColumn } from './types'
 
 // client-side table: sorting via sortable columns, optional pagination
