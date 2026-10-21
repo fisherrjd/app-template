@@ -121,9 +121,17 @@ in the ui README.
 
 ## Pattern library
 
-On top of the shared primitives, reusable patterns live in
-domain folders — each has a matching section in the styleguide, and the example
-pages compose them:
+Two kinds of reusable components:
+
+- **Shared, from `@fisherrjd/ui`:** used by every app, updated with
+  `ui-update`, never copied.
+  - `AppShell` and `PageHeader` (`@fisherrjd/ui/layout`): the sidebar + top
+    bar frame and page titles.
+  - `EmptyState`, `ErrorState`, `ConfirmDialog` (`@fisherrjd/ui/states`).
+  - The shadcn primitives.
+- **Domain patterns, here:** copied with the template, kept only by apps
+  that use them. Each folder has a styleguide section, and the example pages
+  compose them. A pattern a second app needs belongs in the ui repo instead.
 
 | folder                      | components                                                        | example page |
 | --------------------------- | ----------------------------------------------------------------- | ------------ |
@@ -131,9 +139,7 @@ pages compose them:
 | `components/project/`       | KanbanBoard (touch drag & drop), StatusBadge, PullRequestItem, NotesPanel, FreshnessDot, SaveIndicator, Checklist | `/project` |
 | `components/forms/`         | FormField, SettingsSection, TagInput                              | `/settings` |
 | `components/data/`          | DataTable (sort/pagination/slots), SearchInput, FilterBar         | styleguide |
-| `components/states/`        | EmptyState, ErrorState, ConfirmDialog                             | styleguide |
 | `components/content/`       | MarkdownView (marked + DOMPurify, `.md-prose` tokens), ArticleCard, PostMeta | `/blog` |
-| `components/` (top level)   | PageHeader                                                        | everywhere |
 
 Demo data stays in the views; components only take props/v-model, so they lift
 straight into real apps. Kanban and notes persist to localStorage until a

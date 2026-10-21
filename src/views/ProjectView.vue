@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@fisherrjd/ui/card'
+import { PageHeader } from '@fisherrjd/ui/layout'
 import {
   Select,
   SelectContent,
@@ -18,7 +19,6 @@ import { PlusIcon, RotateCcwIcon } from '@lucide/vue'
 import { useLocalStorage } from '@vueuse/core'
 import { ref } from 'vue'
 import { toast } from 'vue-sonner'
-import PageHeader from '@/components/PageHeader.vue'
 import { uid } from '@/lib/utils'
 import KanbanBoard from '@/components/project/KanbanBoard.vue'
 import NotesPanel from '@/components/project/NotesPanel.vue'

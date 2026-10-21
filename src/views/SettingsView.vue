@@ -2,16 +2,16 @@
 import { Button } from '@fisherrjd/ui/button'
 import { Input } from '@fisherrjd/ui/input'
 import { Label } from '@fisherrjd/ui/label'
+import { PageHeader } from '@fisherrjd/ui/layout'
+import { ConfirmDialog } from '@fisherrjd/ui/states'
 import { Switch } from '@fisherrjd/ui/switch'
 import { LOCKED, THEME, useTheme } from '@fisherrjd/ui/theme'
 import { computed, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { toast } from 'vue-sonner'
-import PageHeader from '@/components/PageHeader.vue'
 import FormField from '@/components/forms/FormField.vue'
 import SettingsSection from '@/components/forms/SettingsSection.vue'
 import TagInput from '@/components/forms/TagInput.vue'
-import ConfirmDialog from '@/components/states/ConfirmDialog.vue'
 
 // profile — demo state; the error clears as soon as the field is valid
 const name = ref('Jade Fisher')

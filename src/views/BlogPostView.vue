@@ -2,12 +2,12 @@
 import { Badge } from '@fisherrjd/ui/badge'
 import { Button } from '@fisherrjd/ui/button'
 import { Separator } from '@fisherrjd/ui/separator'
+import { ErrorState } from '@fisherrjd/ui/states'
 import { ArrowLeftIcon } from '@lucide/vue'
 import { computed } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import MarkdownView from '@/components/content/MarkdownView.vue'
 import PostMeta from '@/components/content/PostMeta.vue'
-import ErrorState from '@/components/states/ErrorState.vue'
 import { formatDate, POSTS, readingTime } from '@/lib/posts'
 
 const route = useRoute()

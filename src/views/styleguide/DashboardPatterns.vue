@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { Button } from '@fisherrjd/ui/button'
 import { Card } from '@fisherrjd/ui/card'
+import { PageHeader } from '@fisherrjd/ui/layout'
 import { CreditCardIcon, DollarSignIcon, UserPlusIcon, UsersIcon, ZapIcon } from '@lucide/vue'
-import PageHeader from '@/components/PageHeader.vue'
 import ActivityFeed from '@/components/dashboard/ActivityFeed.vue'
 import BarChart from '@/components/dashboard/BarChart.vue'
 import ProgressMeter from '@/components/dashboard/ProgressMeter.vue'

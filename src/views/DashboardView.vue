@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@fisherrjd/ui/card'
+import { PageHeader } from '@fisherrjd/ui/layout'
 import {
   Select,
   SelectContent,
@@ -30,7 +31,6 @@ import {
 } from '@lucide/vue'
 import { computed, ref } from 'vue'
 import { toast } from 'vue-sonner'
-import PageHeader from '@/components/PageHeader.vue'
 import DataTable from '@/components/data/DataTable.vue'
 import type { DataTableColumn } from '@/components/data/types'
 import ActivityFeed from '@/components/dashboard/ActivityFeed.vue'

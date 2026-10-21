@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { PageHeader } from '@fisherrjd/ui/layout'
 import {
   Select,
   SelectContent,
@@ -6,13 +7,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@fisherrjd/ui/select'
+import { EmptyState } from '@fisherrjd/ui/states'
 import { computed, ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import PageHeader from '@/components/PageHeader.vue'
 import ArticleCard from '@/components/content/ArticleCard.vue'
 import FilterBar from '@/components/data/FilterBar.vue'
 import SearchInput from '@/components/data/SearchInput.vue'
-import EmptyState from '@/components/states/EmptyState.vue'
 import { formatDate, POSTS, readingTime } from '@/lib/posts'
 
 const search = ref('')

@@ -113,7 +113,7 @@ import StatePatterns from './StatePatterns.vue'
         <span class="size-2 rounded-sm bg-primary" aria-hidden="true" />State patterns</h2>
       <p class="text-sm text-muted-foreground">
         From
-        <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">src/components/states/</code>
+        <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">@fisherrjd/ui/states</code>
         — empty, error, confirm, and loading.
       </p>
       <StatePatterns />
