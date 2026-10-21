@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import UserAvatar from '@/components/dashboard/UserAvatar.vue'
+import { UserAvatar } from '@fisherrjd/ui/dashboard'
 
 defineProps<{
   author: string

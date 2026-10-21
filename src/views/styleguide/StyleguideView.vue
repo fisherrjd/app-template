@@ -60,8 +60,8 @@ import StatePatterns from './StatePatterns.vue'
       <h2 class="flex items-center gap-2 text-xl font-semibold tracking-tight">
         <span class="size-2 rounded-sm bg-primary" aria-hidden="true" />Dashboard patterns</h2>
       <p class="text-sm text-muted-foreground">
-        Reusable pieces from
-        <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">src/components/dashboard/</code>
+        Shared pieces from
+        <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">@fisherrjd/ui/dashboard</code>
         — the home dashboard is built entirely from these.
       </p>
       <DashboardPatterns />

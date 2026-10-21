@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Badge } from '@fisherrjd/ui/badge'
 import { Button } from '@fisherrjd/ui/button'
+import { UserAvatar } from '@fisherrjd/ui/dashboard'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,7 +12,6 @@ import {
 import { Input } from '@fisherrjd/ui/input'
 import { EllipsisVerticalIcon, GripVerticalIcon, PlusIcon } from '@lucide/vue'
 import { nextTick, ref } from 'vue'
-import UserAvatar from '@/components/dashboard/UserAvatar.vue'
 import { uid } from '@/lib/utils'
 import type { KanbanCardData, KanbanColumnData } from './types'
 

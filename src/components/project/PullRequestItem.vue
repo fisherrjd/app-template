@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { UserAvatar } from '@fisherrjd/ui/dashboard'
 import { GitPullRequestIcon } from '@lucide/vue'
-import UserAvatar from '@/components/dashboard/UserAvatar.vue'
 import StatusBadge from './StatusBadge.vue'
 
 withDefaults(

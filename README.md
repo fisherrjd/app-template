@@ -128,6 +128,9 @@ Two kinds of reusable components:
   - `AppShell` and `PageHeader` (`@fisherrjd/ui/layout`): the sidebar + top
     bar frame and page titles.
   - `EmptyState`, `ErrorState`, `ConfirmDialog` (`@fisherrjd/ui/states`).
+  - `StatCard`, `LinkTile`, `Panel`, `Pipeline`, `ActivityFeed`, `BarChart`,
+    `ProgressMeter`, `Sparkline`, `UserAvatar` (`@fisherrjd/ui/dashboard`):
+    the home dashboard at `/` is built from these.
   - The shadcn primitives.
 - **Domain patterns, here:** copied with the template, kept only by apps
   that use them. Each folder has a styleguide section, and the example pages
@@ -135,7 +138,6 @@ Two kinds of reusable components:
 
 | folder                      | components                                                        | example page |
 | --------------------------- | ----------------------------------------------------------------- | ------------ |
-| `components/dashboard/`     | StatCard, Sparkline, BarChart, ActivityFeed, ProgressMeter, UserAvatar | `/` |
 | `components/project/`       | KanbanBoard (touch drag & drop), StatusBadge, PullRequestItem, NotesPanel, FreshnessDot, SaveIndicator, Checklist | `/project` |
 | `components/forms/`         | FormField, SettingsSection, TagInput                              | `/settings` |
 | `components/data/`          | DataTable (sort/pagination/slots), SearchInput, FilterBar         | styleguide |

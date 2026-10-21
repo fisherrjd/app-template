@@ -1,14 +1,9 @@
 <script setup lang="ts">
 import { Button } from '@fisherrjd/ui/button'
 import { Card } from '@fisherrjd/ui/card'
+import { ActivityFeed, BarChart, ProgressMeter, Sparkline, StatCard, UserAvatar } from '@fisherrjd/ui/dashboard'
 import { PageHeader } from '@fisherrjd/ui/layout'
 import { CreditCardIcon, DollarSignIcon, UserPlusIcon, UsersIcon, ZapIcon } from '@lucide/vue'
-import ActivityFeed from '@/components/dashboard/ActivityFeed.vue'
-import BarChart from '@/components/dashboard/BarChart.vue'
-import ProgressMeter from '@/components/dashboard/ProgressMeter.vue'
-import Sparkline from '@/components/dashboard/Sparkline.vue'
-import StatCard from '@/components/dashboard/StatCard.vue'
-import UserAvatar from '@/components/dashboard/UserAvatar.vue'
 
 const trend = [12, 18, 14, 22, 20, 28, 26, 34]
 const dip = [30, 26, 28, 22, 24, 18, 20, 14]

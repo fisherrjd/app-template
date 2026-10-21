@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@fisherrjd/ui/card'
+import { ActivityFeed, BarChart, ProgressMeter, StatCard, UserAvatar } from '@fisherrjd/ui/dashboard'
 import { PageHeader } from '@fisherrjd/ui/layout'
 import {
   Select,
@@ -33,11 +34,6 @@ import { computed, ref } from 'vue'
 import { toast } from 'vue-sonner'
 import DataTable from '@/components/data/DataTable.vue'
 import type { DataTableColumn } from '@/components/data/types'
-import ActivityFeed from '@/components/dashboard/ActivityFeed.vue'
-import BarChart from '@/components/dashboard/BarChart.vue'
-import ProgressMeter from '@/components/dashboard/ProgressMeter.vue'
-import StatCard from '@/components/dashboard/StatCard.vue'
-import UserAvatar from '@/components/dashboard/UserAvatar.vue'
 
 // ————— demo data — everything below is fake and lives here on purpose,
 // so the components stay pure and reusable —————
