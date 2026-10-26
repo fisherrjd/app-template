@@ -61,8 +61,7 @@ for both dev and preview, with `allowedHosts: true` — so it's reachable as
 ## Shared UI: `@fisherrjd/ui`
 
 The look every app shares lives in its own repo,
-[fisherrjd/ui](https://github.com/fisherrjd/ui), installed as a git
-dependency. It holds the theme engine (seed colors → every token), base
+[fisherrjd/ui](https://github.com/fisherrjd/ui), installed from npm. It holds the theme engine (seed colors → every token), base
 styles and utilities (`card-hover`, `md-prose`, `rise-in`, page transitions),
 the shadcn-vue primitives, and the theme runtime (`useTheme`, `ThemeToggle`,
 pre-paint, the theme lab).
