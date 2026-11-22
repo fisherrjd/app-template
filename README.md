@@ -42,6 +42,20 @@ direnv allow   # builds the nix devshell (bun + pog scripts)
 dev            # installs deps if needed, starts vite on PORT (default :3000)
 ```
 
+## Deploy image
+
+`.github/workflows/docker-publish.yml` publishes a container image to ghcr once
+the app has a `Dockerfile` (it does nothing before that, and never runs in
+app-template itself). The version comes from `package.json`:
+
+- push to `main` → `ghcr.io/<owner>/<repo>:X.Y.Z`, tag `vX.Y.Z`, then the patch
+  version is bumped on `main`
+- push to any other branch → `ghcr.io/<owner>/<repo>:X.Y.Z-b<sha7>`
+
+The Dockerfile should listen on `0.0.0.0`, have one `EXPOSE <port>` line and run
+as a non-root user. The factory (factory.jade.rip) uses these images for PR
+previews and for the ops deploy.
+
 ## Scripts
 
 Pog scripts from the devshell (each has a `bun run` equivalent):
